@@ -1,0 +1,36 @@
+ <div class="jumbotron">
+      <div class="container">   
+
+<h1>Post a song</h1>
+<hr/>
+
+<% if @song && @song.errors.any? %>
+  <div>
+    <strong>Some issues with your song, please fix them:</strong>
+    <ul>
+      <% @song.errors.full_songs.each do |song| %>
+        <li><%= song %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method="post" action="/songs">
+  <div>
+    <label>Author:</label>
+    <input type="text" name="author" value="<%= @song && @song.author %>">
+  </div>
+  <div>
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= @song && @song.title %>">
+  </div>
+  <div>
+    <label>Url:</label>
+    <input type="url" name="url" value="<%= @song.url %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit" >
+  </div>
+</form>
+</div>
+</div>

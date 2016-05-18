@@ -1,0 +1,18 @@
+<h1>All Songs</h1>
+<hr/>
+
+<% @songs.each do |song| %>
+  <div class="song">
+    <h3>
+    <a href="/songs/<%= song.id %>"><%= song.title %></a>
+   <%= song.author %></h3>
+    <p>
+      <%= song.url %>
+
+    </p>
+
+  </div>
+<% end %>
+
+<hr/>
+<a href="/songs/new">Post a song...</a>
